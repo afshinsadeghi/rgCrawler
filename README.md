@@ -7,9 +7,9 @@ ResearchGate is a scientific social network that displays the publications, proj
 and analysis of an author.
 The crawler, given an author_name_string, produces set of authors and publications in the format of json
 
-Installation:
----------
-Requirments:
+*Installation:
+
+**Requirments:
 ``pip,python2.7``.
 ``
 1. make sure you have activated python virtual env:
@@ -25,11 +25,11 @@ pip install git+git://github.com/sadeghiafshin/rgCrawler.git@master
 source venv/bin/activate
 
 
-How  to run:
+**How  to run:
 
 ``python -m rgcrawler --authorID <author_name_string>``
 
-Where to I find the  author_name_string:
+**Where to I find the  author_name_string:
 
 When you look to one of your profile page, the author id is the string that
 appears at the end and usually includes your name.
