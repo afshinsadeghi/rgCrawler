@@ -23,7 +23,7 @@ p = Path('contributions')
 class Contribution(JSONer):
     """docstring for Contribution"""
     def __init__(self, identifier, soup):
-        self._id        = int(identifier)
+        self._id        = identifier
         self._type      = ""
         self._title     = ""
         self._profile   = ""
@@ -66,7 +66,7 @@ class Contribution(JSONer):
                     self._authors.append(authorID)
                 elif istag:
                     content = content["href"].split('/')[-1].split('_')
-                    self._authors.append(int(normalizeText(content[0])))
+                    self._authors.append(normalizeText(content[0]))
         return self._authors
 
     def get_abstract(self, soup):

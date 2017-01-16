@@ -25,14 +25,14 @@ m = Manager()
 class SocietyManager(JSONer):
     """docstring for SocietyManager"""
 
-    siteURL    = "https://www.researchgate.net/"
-    authorURL  = siteURL + "profile/{0}"
+    siteURL = "https://www.researchgate.net/"
+    authorURL = siteURL + "profile/{0}"
     contribURL = siteURL + "profile/{0}/contributions?sorting=newest&page={1}"
-    paperURL   = siteURL + "publication/{0}"
+    paperURL = siteURL + "publication/{0}"
 
     def __init__(self):
-        self._web_dir           = Path('web')
-        self._authors_dir       = Path('authors')
+        self._web_dir = Path('web')
+        self._authors_dir = Path('authors')
         self._contributions_dir = Path('contributions')
 
     def get_author_dir(self):
@@ -91,8 +91,8 @@ class SocietyManager(JSONer):
 
     def url2soup(self, url):
         m.debug('Reading URL: {0}'.format(url))
-        req  = urllib2.Request(url, headers={ 'User-Agent': 'Mozilla/5.0' })
-        f    = urllib2.urlopen(req)
+        req = urllib2.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        f = urllib2.urlopen(req)
         soup = BeautifulSoup(f.read(), "html.parser")
         return soup
 
@@ -105,7 +105,7 @@ class SocietyManager(JSONer):
 
     def file2soup(self, file_name):
         m.debug('Reading file: {0}'.format(file_name))
-        f    = open(file_name)
+        f = open(file_name)
         soup = BeautifulSoup(f.read(), "html.parser")
         f.close()
         return soup
@@ -113,9 +113,10 @@ class SocietyManager(JSONer):
 
 class ScientificSociety(JSONer):
     """docstring for ScientificSociety"""
+
     def __init__(self):
-        self._manager       = SocietyManager()
-        self._authors       = {}
+        self._manager = SocietyManager()
+        self._authors = {}
         self._contributions = {}
         self.load()
 
@@ -124,21 +125,21 @@ class ScientificSociety(JSONer):
             self._authors[authorID] = Author(authorID, self._manager.get_author_data(authorID))
 
     def load_contributions_of(self, authorID):
-        authorID = int(authorID)
+        authorID = authorID
         self.load_author(authorID)
         count_page = 1
         while not self._authors[authorID].has_all_contributions():
             authorProfile = self._authors[authorID].get_profile()
             soup = self._manager.get_contribution_list_data(authorProfile, count_page)
             for pub in soup('li', attrs={'class': 'li-publication'}):
-                identifier  = pub('a', {'class': 'ga-publication-item'})[0]["href"]
-                identifier  = int(identifier.split('_')[0].split('/')[-1])
+                identifier = pub('a', {'class': 'ga-publication-item'})[0]["href"]
+                identifier = identifier.split('/')[len(identifier) - 1]
                 author_list = []
                 if identifier not in self._contributions:
                     self._contributions[identifier] = Contribution(identifier, pub)
                     cont_profile = self._contributions[identifier].get_profile()
-                    author_list  = self._contributions[identifier].get_authors(pub, authorID)
-                    moresoup     = self._manager.get_contribution_data(cont_profile)
+                    author_list = self._contributions[identifier].get_authors(pub, authorID)
+                    moresoup = self._manager.get_contribution_data(cont_profile)
                     self._contributions[identifier].get_more_content(moresoup)
                 for aID in author_list:
                     self.load_author(aID)
@@ -155,7 +156,7 @@ class ScientificSociety(JSONer):
             fd.write(self._authors[author].to_YAML())
         fd.close()
 
-    def contributions2MD(self, exclude = None):
+    def contributions2MD(self, exclude=None):
         for contid in self._contributions:
             if exclude is None or self._contributions[contid].get_type() not in exclude:
                 fd = File(self._contributions[contid].get_short_profile() + '.md', 'w')
