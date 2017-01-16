@@ -120,7 +120,6 @@ class ScientificSociety(JSONer):
         self.load()
 
     def load_author(self, authorID):
-        authorID = int(authorID)
         if authorID not in self._authors:
             self._authors[authorID] = Author(authorID, self._manager.get_author_data(authorID))
 
