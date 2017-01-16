@@ -11,28 +11,29 @@ Installation:
 ---------
 Requirments:
 ``pip,python2.7``.
-
+``
 1. make sure you have activated python virtual env:
 
 2.cd project_folder
+
 virtualenv venv
+
 source venv/bin/activate
-pip install git+git://github.com/sadeghiafshin/rgCrawler.git@master --process-dependency-links
-```
+
+pip install git+git://github.com/sadeghiafshin/rgCrawler.git@master
+
 source venv/bin/activate
 
 
-How can to run:
-The only thing you need to type is:
-```bash
+How  to run:
+
 python -m rgcrawler --authorID <author_name_string>
-```
+``
 
-**Where can I find the  author_name_string?**
+Where to I find the  author_name_string:
+
 When you look to one of your profile page, the author id is the string that
 appears at the end and usually includes your name.
-
-
 
 This code is inspired from by RGCrawler made by jaumebonet.
 The code open source , you can take it and change and reuse it as your will.
