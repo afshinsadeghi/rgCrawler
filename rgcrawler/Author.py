@@ -52,7 +52,7 @@ class Stats(JSONer):
 class Author(JSONer):
     """docstring for Author"""
     def __init__(self, identifier, soup):
-        self._id            = int(identifier)
+        self._id            = identifier
         self._name          = ""
         self._profile       = ""
         self._institution   = ""
