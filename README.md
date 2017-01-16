@@ -22,7 +22,7 @@ pip install git+git://github.com/sadeghiafshin/rgCrawler.git@master --process-de
 source venv/bin/activate
 
 
-**How can I run it?**  
+How can to run:
 The only thing you need to type is:
 ```bash
 python -m rgcrawler --authorID <author_name_string>
