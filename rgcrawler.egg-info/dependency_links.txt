@@ -1,0 +1,1 @@
+git+https://github.com/jaumebonet/pynion.git@0.0.4#egg=pynion-0.0.4

@@ -1,0 +1,15 @@
+setup.cfg
+setup.py
+rgcrawler/Author.py
+rgcrawler/Contribution.py
+rgcrawler/ScientificSociety.py
+rgcrawler/__init__.py
+rgcrawler/__main__.py
+rgcrawler/helpers.py
+rgcrawler.egg-info/PKG-INFO
+rgcrawler.egg-info/SOURCES.txt
+rgcrawler.egg-info/dependency_links.txt
+rgcrawler.egg-info/entry_points.txt
+rgcrawler.egg-info/not-zip-safe
+rgcrawler.egg-info/requires.txt
+rgcrawler.egg-info/top_level.txt
