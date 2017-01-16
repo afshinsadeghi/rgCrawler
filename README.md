@@ -27,8 +27,7 @@ source venv/bin/activate
 
 How  to run:
 
-python -m rgcrawler --authorID <author_name_string>
-``
+``python -m rgcrawler --authorID <author_name_string>``
 
 Where to I find the  author_name_string:
 
