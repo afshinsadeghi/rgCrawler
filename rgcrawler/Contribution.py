@@ -17,7 +17,7 @@ from .helpers import normalizeText
 from .helpers import fixForcedLineChange
 
 m = Manager()
-p = Path('profile/{0}/contributions')
+p = Path('contributions')
 
 
 class Contribution(JSONer):

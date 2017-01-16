@@ -20,8 +20,8 @@ setup(
     # long_description=read('README.md'),
 
     # The project's main homepage.
-    url='https://github.com/sadeghiafshin/rgcrawler',
-    download_url = 'https://github.com/sadeghiafshin/rgcrawler/archive/{0}.tar.gz'.format(__version__),
+    url='https://github.com/sadeghiafshin/rgCrawler',
+    download_url = 'https://github.com/sadeghiafshin/rgCrawler/archive/{0}.tar.gz'.format(__version__),
 
     # Author details
     author='Afshin Sadeghi',
